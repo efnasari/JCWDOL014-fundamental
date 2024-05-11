@@ -56,3 +56,22 @@ let kata = "javascript"
 console.log(kata === "javascript" ? "javascript" : "not javascript") // ternary operator, mempersingkat penulisan if else
 console.log(grade == "A" ? "Excellent" : grade == "B" ? "Good" : invalid)
 
+// versi mentor
+console.log("---------- versi mentor")
+let b = {};
+
+if (b) {
+  console.log(true);
+} else {
+  console.log(false);
+}
+
+let str = "";
+
+console.log(str.length);
+
+let kata1 = "Typescript";
+
+console.log(kata1 === "Javascript" ? "Javascript" : "not Javascript");
+
+console.log(grade == "A" ? "Excellent Result" : grade == "B" ? "Good Result" : "Invalid Grade")
