@@ -7,22 +7,44 @@ var discountPrices = function(sentence, discount) {
         //console.log(`${i} ${arrOut[i]}`)
         if (arrInp[i].includes("$") > 0 ) {
             // jika ada $ di depan
-            //replaceStr = arrInp[i].replace("$",)
+            
            if (arrInp[i].lastIndexOf("$") > 0) {
-            arrOut.push(arrInp[i])
-           } else {
+            console.log("aaaa")
+                arrOut.push(arrInp[i])
+           }  else {
             
             let resNum = arrInp[i].substring(1,arrInp[i].length)
-            let resDisc = (resNum - (resNum * (discount/100))).toFixed(2) // menghitung diskon dengan 2 decimal
-            //console.log(discount/100)
             // console.log(`resNum ${resNum}`)
-            // console.log(`disc ${resDisc}`)
-            // console.log("-----")
-            arrOut.push(`$${resDisc}`)
+            //console.log(resNum)
+            if (resNum == "") {
+                console.log("bbb")
+                arrOut.push(arrInp[i])
+            } else if (isNaN(resNum) == true) {
+                console.log("cccc")
+                arrOut.push(arrInp[i])
+            } else {
+                
+                // console.log(Number.isInteger(resNum))
+                
+                if (Number.isInteger(resNum) === false) {
+                    console.log("ddd")
+                    console.log(resNum)
+                   arrOut.push(arrInp[i])
+                } else {
+                    console.log("eee")
+                    let resDisc = (resNum - (resNum * (discount/100))).toFixed(2) // menghitung diskon dengan 2 decimal
+                   // console.log(resDisc)
+                    arrOut.push(`$${resDisc}`)
+               }
+                
+            }
+            //console.log("-----")
+            
            }
             
         } else {
             // jika tidak ada $ di depan
+            console.log("fff")
             arrOut.push(arrInp[i])            
         }
     }
@@ -31,3 +53,8 @@ var discountPrices = function(sentence, discount) {
 };
 
 console.log(discountPrices("1 2 $3 4 $5 $6 7 8$ $9 $10$", discount = 100))
+
+// console.log(discountPrices("there are $1 $2 and 5$ candies in the shop", discount = 50))
+
+//"$1e9"
+//console.log(discountPrices("$1e9", discount = 50))
